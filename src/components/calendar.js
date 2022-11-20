@@ -6,98 +6,195 @@ import {BsEmojiDizzy, BsEmojiFrown, BsEmojiSmile, BsEmojiLaughing, BsEmojiExpres
 import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
 
 export const Calendar = () => {
+  const messageRef = useRef();
+  const emojiRef = useRef();
+  const emoji2Ref = useRef();
+  const emoji3Ref = useRef();
+  const emoji4Ref = useRef();
+  const emoji5Ref = useRef();
+  const sleepRef = useRef();
+  const sleep2Ref = useRef();
 
-  const [note, setNote] = useState("")
-  const [emoji, setEmoji] = useState("")
-  const [sleep, setSleep] = useState("")
+  
   const handleSave = async (e) => {
     e.preventDefault();
- 
+    console.log(messageRef.current.value);
+    
+    let data = {
+      message:messageRef.current.value,
+    }
     
     try {
-      const messageRef = await addDoc(collection(firestore, "Entry"), {message: note});
+      addDoc(collection(firestore, "Entry"), data);
     } catch(e) {
       console.log(e);
     }
   };
+
   const handleSave2 = async (e) => {
     e.preventDefault();
- 
+    console.log(emojiRef.current.value);
+    
+    let data = {
+      emoji:emojiRef.current.value,
+    }
     
     try {
-      const messageRef2 = await addDoc(collection(firestore, "Emoji"), {emoji: emoji});
+      addDoc(collection(firestore, "Emoji"), data);
     } catch(e) {
       console.log(e);
     }
   };
   const handleSave3 = async (e) => {
     e.preventDefault();
- 
+    console.log(emoji2Ref.current.value);
+    
+    let data = {
+      emoji:emoji2Ref.current.value,
+    }
     
     try {
-      const messageRef3 = await addDoc(collection(firestore, "Sleep"), {sleep: sleep});
+      addDoc(collection(firestore, "Emoji"), data);
+    } catch(e) {
+      console.log(e);
+    }
+  };
+  const handleSave4 = async (e) => {
+    e.preventDefault();
+    console.log(emoji3Ref.current.value);
+    
+    let data = {
+      emoji:emoji3Ref.current.value,
+    }
+    
+    try {
+      addDoc(collection(firestore, "Emoji"), data);
+    } catch(e) {
+      console.log(e);
+    }
+  };
+  const handleSave5 = async (e) => {
+    e.preventDefault();
+    console.log(emoji4Ref.current.value);
+    
+    let data = {
+      emoji:emoji4Ref.current.value,
+    }
+    
+    try {
+      addDoc(collection(firestore, "Emoji"), data);
+    } catch(e) {
+      console.log(e);
+    }
+  };
+  const handleSave6 = async (e) => {
+    e.preventDefault();
+    console.log(emoji5Ref.current.value);
+    
+    let data = {
+      emoji:emoji5Ref.current.value,
+    }
+    
+    try {
+      addDoc(collection(firestore, "Emoji"), data);
     } catch(e) {
       console.log(e);
     }
   };
 
+  const handleSave7 = async (e) => {
+    e.preventDefault();
+    console.log(sleepRef.current.value);
+    
+    let data = {
+      sleep:sleepRef.current.value,
+    }
+    
+    try {
+      addDoc(collection(firestore, "Sleep"), data);
+    } catch(e) {
+      console.log(e);
+    }
+  };
+  const handleSave8 = async (e) => {
+    e.preventDefault();
+    console.log(sleep2Ref.current.value);
+    
+    let data = {
+      sleep:sleep2Ref.current.value,
+    }
+    
+    try {
+      addDoc(collection(firestore, "Sleep"), data);
+    } catch(e) {
+      console.log(e);
+    }
+  };
     return (
   
         <div className="bg-gradient-to-b from-sky-500 to-sky-300 w-full
-        text-white h-screen" >
+        text-white" >
           <Container>
           <Row className="px-4">
             <Col sm={12}><h4>Day<br/>Date</h4></Col>
           </Row>
           <Row className="px-4 my-5">
             <Col md={{ span: 3, offset: 2 }}><br/><br/>
-            <Form className="text-center" onSubmit={handleSave2}>
+            <Card className="text-center">
               <Card.Header><h5 className="mb-4 text-4xl">How are you feeling today?</h5></Card.Header>
               <Card.Body>
-                <Stack direction="horizontal" gap={3}>
-                  <Button className="flex-row ml-2 mr-2" onChange={(e)=>setEmoji(e.target.value)}>
+              <Stack direction="horizontal" gap={3}>
+                <Form className="text-center" onSubmit={handleSave2}>
+                  <Button className="flex-row ml-2 mr-2" type="submit" value="Terrible" ref={emojiRef}>
                       <BsEmojiDizzy size={70} className="text-sky-200">
                       </BsEmojiDizzy>
                   </Button>
-                  <Button className="flex-row ml-2 mr-2" value={emoji} onChange={(e)=>setEmoji(e.target.value)}>
+                  </Form>
+                  <Form className="text-center" onSubmit={handleSave3}>
+                  <Button className="flex-row ml-2 mr-2" type="submit" value="Bad" ref={emoji2Ref}>
                       <BsEmojiFrown size={70} className="text-sky-200">
                       </BsEmojiFrown>
-                  </Button>
-                  <Button className="flex-row ml-2 mr-2" value={emoji} onChange={(e)=>setEmoji(e.target.value)}>
+                  </Button></Form>
+                  <Form className="text-center" onSubmit={handleSave4}>
+                  <Button className="flex-row ml-2 mr-2" type="submit" value="Average" ref={emoji3Ref}>
                       <BsEmojiExpressionless size={70} className="text-sky-200">
                       </BsEmojiExpressionless>
-                  </Button>
-                  <Button className="flex-row ml-2 mr-2" value={emoji} onChange={(e)=>setEmoji(e.target.value)}>
+                  </Button></Form>
+                  <Form className="text-center" onSubmit={handleSave5}>
+                  <Button className="flex-row ml-2 mr-2" type="submit" value="Good" ref={emoji4Ref}>
                       <BsEmojiSmile size={70} className="text-sky-200">
                       </BsEmojiSmile>
-                  </Button>
-                  <Button className="flex-row ml-2 mr-2" value={emoji} onChange={(e)=>setEmoji(e.target.value)}>
+                  </Button></Form>
+                  <Form className="text-center" onSubmit={handleSave6}>
+                  <Button className="flex-row ml-2 mr-2" type="submit" value="Amazing" ref={emoji5Ref}>
                       <BsEmojiLaughing size={70} className="text-sky-200"></BsEmojiLaughing></Button>
-                </Stack>
-                <Button className="mx-auto text-center bg-sky-500 w-20 h-9 text-lg rounded-md"  type="submit">
-                Save
-              </Button>
+                      </Form>
+                      </Stack>
+                
               </Card.Body>
-            </Form>
+            </Card>
             </Col>
+            </Row>
+            <Row className="px-4 my-5">
             <Col md={{ span: 3, offset: 2 }}><br/><br/>
-            <Form className="text-center" onSubmit={handleSave3}>
-      <Card.Header><h5 className="mb-4 text-4xl">How did you sleep last night?</h5></Card.Header>
-      <Card.Body>
-          <Stack direction="horizontal" gap={2}>
-          <Button className="flex-row ml-2 mr-10" Value="dizzy" value={sleep} onChange={(e)=>setSleep(e.target.value)}>
+            
+      <Card.Header><h5 className="text-center mb-4 text-4xl">How did you sleep last night?</h5></Card.Header>
+     
+          
+          <Form className="text-center" onSubmit={handleSave8}>
+          
+          <Button className="flex-row ml-2 mr-10" type="submit" value="good" ref={sleep2Ref}>
+                      <FaThumbsUp size={70} className="text-sky-200" >
+                      </FaThumbsUp>
+                    </Button>
+     
+    </Form><Form className="text-center" onSubmit={handleSave7}>
+          <Button className="flex-row ml-10 mr-2" type="submit" value="bad" ref={sleepRef}>
                       <FaThumbsDown size={70} className="text-sky-200">
                       </FaThumbsDown>
           </Button>
-          <Button className="flex-row ml-10 mr-2" value={sleep} onChange={(e)=>setSleep(e.target.value)}>
-                      <FaThumbsUp size={70} className="text-sky-200" >
-                      </FaThumbsUp></Button>
-              </Stack>
-              <Button className="mx-auto text-center bg-sky-500 w-20 h-9 text-lg rounded-md"  type="submit"onSubmit={handleSave3}>
-                Save
-              </Button>
-      </Card.Body>
-    </Form>
+         
+          </Form>
             </Col>
           </Row>
           <Row className="px-4 my-5">
@@ -109,9 +206,10 @@ export const Calendar = () => {
                 className="w-full justify-items-center text-black"
                 as="textarea"
                 rows={6}
+                ref={messageRef}
                 id="inputNote"
                 placeholder='  Type here'
-                onChange={(e)=>setNote(e.target.value)}
+                
               />
               </Form.Group>
               <Button className="mx-auto text-center bg-sky-500 w-20 h-9 text-lg rounded-md"  type="submit">
