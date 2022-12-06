@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/TheMeProject/static/css/main.c7c23853.css",
-    "main.js": "/TheMeProject/static/js/main.06c10f43.js",
+    "main.js": "/TheMeProject/static/js/main.1db00b1d.js",
     "static/media/placeholder2.png": "/TheMeProject/static/media/placeholder2.bbd15ddd6ff9c77e8119.png",
     "index.html": "/TheMeProject/index.html",
     "main.c7c23853.css.map": "/TheMeProject/static/css/main.c7c23853.css.map",
-    "main.06c10f43.js.map": "/TheMeProject/static/js/main.06c10f43.js.map"
+    "main.1db00b1d.js.map": "/TheMeProject/static/js/main.1db00b1d.js.map"
   },
   "entrypoints": [
     "static/css/main.c7c23853.css",
-    "static/js/main.06c10f43.js"
+    "static/js/main.1db00b1d.js"
   ]
 }
